@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="module">
+    const data = {
+      name: 'hello',
+      age: 20,
+      info: {
+        avatar: 'xxx',
+        phone: 1311111,
+        realName: 'world',
+      },
+    };
+
+    const dataProxy = new Proxy(data, {
+      get (target, prop) {
+        console.log('get 方法被调用', target, prop)
+        return Reflect.get(target, prop);
+      },
+      set (target, prop, value) {
+        console.log('set 方法被调用')
+        return Reflect.set(target, prop, value);
+      },
+      deleteProperty(target, prop) {
+        console.log('delete 方法被调用')
+        return Reflect.deleteProperty(target, prop);
+      }
+    });
+
+    dataProxy.name;
+    dataProxy.sex = '男';
+    console.log(data, dataProxy);
+
+    delete dataProxy.age;
+
+    console.log(data, dataProxy);
+  </script>
+</body>
+</html>

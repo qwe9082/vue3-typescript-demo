@@ -5,6 +5,16 @@
     <h3>bar: {{ bar }}</h3>
     <h3>foo2: {{ foo2 }}</h3>
     <h3>bar2: {{ bar2 }}</h3>
+
+    <teleport to='body'>
+        <div>123</div>
+        <div>to body</div>
+    </teleport>
+
+    <teleport to='#xxx'>
+        <div>321</div>
+        <div>to xxx</div>
+    </teleport>
   </div>
 </template>
 

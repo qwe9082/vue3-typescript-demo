@@ -2,6 +2,7 @@
   <h2>
     App父组件<button @click="incrementC">{{ c.count }}</button>
   </h2>
+  <h1 id="xxx"></h1>
   <button @click="show = !show">显示隐藏Child子组件{{ c.count }}</button>
   <hr />
   <Child v-if="show" />

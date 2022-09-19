@@ -122,3 +122,28 @@
 * update -> onUpdate
 * beforeDestory -> onBeforeUnmount
 * destoryed -> onUnmonted
+
+# 其他新组合和API
+## 1.新组件
+  * Fragment Vue2中组件必须有有一个根标签，vue3可以不需要根标签
+  * Teleport Teleport 提供了一种干净的方法, 让组件的html在父组件界面外的特定标签(很可能是body)下插入显示
+  * Suspense 提供default和fallback两个插槽，可以和异步组件配合使用
+## 2.其他新的API
+  * 全新的全局API
+    + createApp
+    + defineProperty
+    + defineAsyncComponent
+    + nextTick
+  * 将原来的全局API转移到应用对象
+    + app.component()
+    + app.config()
+    + app.directive()
+    + app.mount()
+    + app.unmount()
+    + app.use()
+  * 模板语法变化
+    + v-model的本质变化
+      - prop：value -> modelValue
+      - event：input -> update:modelValue
+    + .sync修改符已移除, 由v-model代替
+    + v-if优先v-for解析
